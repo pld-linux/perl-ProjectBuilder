@@ -4,12 +4,12 @@
 
 %define		pdir	ProjectBuilder
 %include	/usr/lib/rpm/macros.perl
-Summary:	ProjectBuilder
+Summary:	Perl module providing multi-OSes (Linux/Solaris/...) Continuous Packaging
 Name:		perl-ProjectBuilder
 Version:	0.11.3
 Release:	1
 License:	GPL v2
-Group:		Development/Languages/Perl
+Group:		Applications/Archiving
 Source0:	http://www.cpan.org/modules/by-module/ProjectBuilder/%{pdir}-%{version}.tar.gz
 # Source0-md5:	eaca1edcfbf6e2c1603ab071a803f9f3
 URL:		http://search.cpan.org/dist/ProjectBuilder/
@@ -19,15 +19,10 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-ProjectBuilder helps you build various packages directly from your
-project sources. In order to work correctly, it relies on a certain
-number of configuration files. Most of these configuration parameters
-can be setup in all the configuration files, however, they generally
-make more sense in a specific one, which is indicated. There are
-mainly 4 configuration files, the one in the home directory of the
-user (used first), the one from the project (use in second), the one
-in the VM/VE hosting directory, and the one provided by the tool in
-/etc/pb or /usr/local/etc/pb (lastly).
+ProjectBuilder is a Perl module providing set of functions to help
+develop packages for projects and deal with different Operating
+systems (Linux distributions, Solaris, ...). It implements a
+Continuous Packaging approach.
 
 %prep
 %setup -q -n %{pdir}-%{version}
@@ -41,6 +36,7 @@ in the VM/VE hosting directory, and the one provided by the tool in
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_sysconfdir}/pb
 %{__make} pure_install \
 	DESTDIR=$RPM_BUILD_ROOT
 
@@ -50,6 +46,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog INSTALL NEWS README
+%dir %{_sysconfdir}/pb
 %attr(755,root,root) %{_bindir}/pbdistrocheck
 %{_mandir}/man1/pbdistrocheck.1p*
 %{_mandir}/man3/ProjectBuilder::*.3pm*
