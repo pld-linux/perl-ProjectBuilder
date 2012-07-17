@@ -6,13 +6,14 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	Perl module providing multi-OSes (Linux/Solaris/...) Continuous Packaging
 Name:		perl-ProjectBuilder
-Version:	0.11.3
+Version:	0.12.1
 Release:	1
 License:	GPL v2
 Group:		Applications/Archiving
-Source0:	http://www.cpan.org/modules/by-module/ProjectBuilder/%{pdir}-%{version}.tar.gz
-# Source0-md5:	eaca1edcfbf6e2c1603ab071a803f9f3
-URL:		http://search.cpan.org/dist/ProjectBuilder/
+Source0:	ftp://ftp.project-builder.org/src/%{pdir}-%{version}.tar.gz
+# Source0-md5:	2f31609146aab2e8f597df1b938df3f7
+#URL:		http://search.cpan.org/dist/ProjectBuilder/
+URL:		http://www.project-builder.org/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildArch:	noarch
