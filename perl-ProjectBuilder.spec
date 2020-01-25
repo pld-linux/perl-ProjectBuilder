@@ -3,7 +3,6 @@
 %bcond_without	tests		# do not perform "make test"
 
 %define		pdir	ProjectBuilder
-%include	/usr/lib/rpm/macros.perl
 Summary:	Perl module providing multi-OSes (Linux/Solaris/...) Continuous Packaging
 Name:		perl-ProjectBuilder
 Version:	0.12.1
